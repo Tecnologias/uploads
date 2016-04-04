@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<%#= image_tag(root_path << "selva.jpg", size: "400x300") %>
+
+<h1>Lista Subidas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre Usuario</th>
+      <th>Adjunto</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ups.each do |up| %>
+      <tr>
+        <td><%= up.usuario %></td>
+        <td><%= up.adjunto %></td>
+        <td><%= link_to 'Ver', up %></td>
+        <td><%= link_to 'Editar', edit_up_path(up) %></td>
+        <td><%= link_to 'Eliminar', up, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva Subida', new_up_path %>
+
+<%#= image_tag(root_path << "selva1.jpg", size: "400x300") %>
